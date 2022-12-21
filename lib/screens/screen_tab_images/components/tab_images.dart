@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:list_view_keys_scroll/consts/data.dart';
 import 'package:list_view_keys_scroll/consts/enums.dart';
+import 'package:list_view_keys_scroll/screens/screen_tab_images/components/tab_image.dart';
 
 class TabImages extends StatelessWidget {
   final TabImagesEnum tab;
@@ -25,7 +26,10 @@ class TabImages extends StatelessWidget {
           parent: AlwaysScrollableScrollPhysics(),
         ),
         itemCount: _images.length,
-        itemBuilder: (_, index) => Image.network(_images[index]),
+        itemBuilder: (_, index) => TabImage(
+          image: _images[index],
+          isLast: _images.length == index + 1,
+        ),
       ),
     );
   }
